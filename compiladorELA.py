@@ -1,5 +1,5 @@
-import ply.lex as lex
-import ply.yacc as yacc
+#import ply.lex as lex
+#import ply.yacc as yacc
 
 '''
 compiladorELA.py
@@ -53,7 +53,6 @@ WHILE()
 DO - WHILE()
 FOR(int x; x <= 0; x++)
 '''
-
 
 reserved = {
     'var' : 'VAR',
@@ -123,7 +122,7 @@ t_SEMICOL = r';'
 t_ASIGN = r'='
 t_DOBLECOMILLA = r'"'
 t_ignore_COMMENT = r'#'
-digit = 
+digit = 3
 
 def t_ignore(t):
     r'\s'
