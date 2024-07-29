@@ -6,6 +6,14 @@ En el ámbito de la informática y el desarrollo de software, los compiladores j
 
 El presente proyecto tiene como objetivo desarrollar un compilador funcional para un lenguaje de programación específico. Este compilador será capaz de realizar varias tareas fundamentales, incluyendo el análisis léxico, análisis sintáctico y análisis semántico.
 
+### Informacion Tecinca y Especificaciones
+
+Compilador para lenguaje ELA escrito en Python3. Este compilador se limita a las diferentes etapas de analizis, siendo el analisis lexico, sintactico y semantico, no se realizan mas etapas. Creado utilizando la libreria de (PLY - Lex - Yacc). Para los modulos de analisis lexico y sintactico.
+Creado por:
+* Edson Gutierrez
+* Victor Alvarado
+* Ivan Herran
+
 ### Identificadores aceptados
 * Variable
 * Constante
@@ -74,33 +82,33 @@ El presente proyecto tiene como objetivo desarrollar un compilador funcional par
 
 
 ### Operadores Aritmeticos
-+
-+
-*
+\+
+\+
+\*
 /
 
 ### Operadores Relacionales
 <
->
+\>
 <=
->=
+\>=
 ==
 
 ### Operadores Logicos
-or
-and
-true
-false
+* or
+* and
+* true
+* false
 
 ### Caracteres especiales 
-0
-; 
-{}
-()
+* 0
+* ; 
+* {}
+* ()
 
 ### Sentencias Controladores
-IF()
-WHILE()
-DO - WHILE()
-FOR(int x; x <= 0; x++)
-'''
+* IF()
+* WHILE()
+* DO - WHILE()
+* FOR(int x; x <= 0; x++)
+* '''
