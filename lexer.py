@@ -1,5 +1,5 @@
 import ply.lex as lex
-
+from ply.lex import TOKEN
 
 # Palabras reservadas
 reserved = {
@@ -41,10 +41,11 @@ t_GT = r'>'
 t_GE = r'>='
 t_EQ = r'=='
 t_NE = r'!='
+num_float = r'\d+\.\d+f'
 
 # Regla de expresión regular para números
+@TOKEN(num_float)
 def t_FLOAT(t):
-    r'\d+\.\d+f'
     t.value = float(t.value[:-1])
     return t
 
@@ -94,11 +95,15 @@ program = saved_file.split("\n")
 program_string = ''.join(program)
 
 lexer.input(program_string)
+fileWrite = open("testParser1.txt", "w") 
 
 print("Primera Prueba: \n\n")
 for tok in lexer:
+    filew = str(tok)
+    fileWrite.write(filew)
     print(tok)
-    
+
+fileWrite.close()
     
 print("\n\nSegunda Prueba \n\n")
 
@@ -107,7 +112,14 @@ saved_file = file.read()
 program = saved_file.split("\n")
 program_string = ''.join(program)
 
+
 lexer.input(program_string)
 
+fileWrite = open("testParser2.txt", "w") 
+
 for tok in lexer:
+    filew = str(tok)
+    fileWrite.write(filew)
     print(tok)
+
+fileWrite.close()
