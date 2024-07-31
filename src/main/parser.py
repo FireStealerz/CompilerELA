@@ -73,31 +73,12 @@ def p_error(p):
         print(f"Syntax error at '{p.value}'")
     else:
         print("Syntax error at EOF")
+        
+def build_parser(input_string):        
 
-# Construir el parser
-parser = yacc.yacc()
+    # Construir el parser
+    parser = yacc.yacc()
+    
+    
+    parser.parse(input_string, debug=True)
 
-def parse(data):
-    return parser.parse(data)
-
-def print_parse_result(result, indent=0):
-    """
-    Imprime el resultado del análisis sintáctico de manera legible.
-    """
-    if isinstance(result, tuple):
-        print('  ' * indent + str(result[0]))
-        for item in result[1:]:
-            print_parse_result(item, indent + 1)
-    elif isinstance(result, list):
-        for item in result:
-            print_parse_result(item, indent)
-    else:
-        print('  ' * indent + str(result))
-
-file = open("test2.txt")
-saved_file = file.read() 
-program = saved_file.split("\n")
-program_string = ''.join(program)
-
-result = parse(program_string)
-print_parse_result(result)

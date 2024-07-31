@@ -96,10 +96,10 @@ def lex_main(test_1, test_2):
 
     # Prueba del lexer
 
-    lexer.input(test_1)
-    print("Primera Prueba: \n\n")
-    for tok in lexer:
-        print(tok)
+#    lexer.input(test_1)
+#    print("Primera Prueba: \n\n")
+#    for tok in lexer:
+#        print(tok)
         
     print("\n\nSegunda Prueba \n\n")
 
