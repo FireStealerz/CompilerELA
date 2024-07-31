@@ -42,6 +42,10 @@ t_GE = r'>='
 t_EQ = r'=='
 t_NE = r'!='
 num_float = r'\d+\.\d+f'
+num_int = r'\d+'
+ID_RegEx = r'\$[a-z]+'
+ID_Reserved = r'\b(if|else|while|for)\b'
+string_type = r'\"([^\\\n]|(\\.))*?\"'
 
 # Regla de expresión regular para números
 @TOKEN(num_float)
@@ -49,26 +53,26 @@ def t_FLOAT(t):
     t.value = float(t.value[:-1])
     return t
 
+@TOKEN(num_int)
 def t_NUMBER(t):
-    r'\d+'
     t.value = int(t.value)
     return t
 
 # Regla de expresión regular para identificadores y palabras reservadas
+@TOKEN(ID_RegEx)
 def t_ID(t):
-    r'\$[a-z]+'
     t.type = reserved.get(t.value[1:], 'ID')    # Verifica si es una palabra reservada, omitiendo el símbolo $
     return t
 
 # Regla de expresión regular para palabras reservadas
+@TOKEN(ID_Reserved)
 def t_RESERVED(t):
-    r'\b(if|else|while|for)\b'
     t.type = reserved.get(t.value, 'ID')
     return t
 
 # Regla de expresión regular para cadenas de texto
-def t_STRING(t):
-    r'\"([^\\\n]|(\\.))*?\"'
+@TOKEN(string_type)
+def t_STRING(t):    
     t.value = t.value[1:-1]  # Remover comillas dobles
     return t
 
@@ -82,44 +86,24 @@ def t_newline(t):
 
 # Manejo de errores
 def t_error(t):
-    print(f"Illegal character '{t.value[0]}'")
+    print(f"Illegal character {t.value[1]} token #{t.lexpos}'")
     t.lexer.skip(1)
 
-# Construir el lexer
-lexer = lex.lex()
+def lex_main(test_1, test_2):
 
-# Prueba del lexer
-file = open("test.txt")
-saved_file = file.read() 
-program = saved_file.split("\n")
-program_string = ''.join(program)
+    # Construir el lexer
+    lexer = lex.lex()
 
-lexer.input(program_string)
-fileWrite = open("testParser1.txt", "w") 
+    # Prueba del lexer
 
-print("Primera Prueba: \n\n")
-for tok in lexer:
-    filew = str(tok)
-    fileWrite.write(filew)
-    print(tok)
+    lexer.input(test_1)
+    print("Primera Prueba: \n\n")
+    for tok in lexer:
+        print(tok)
+        
+    print("\n\nSegunda Prueba \n\n")
 
-fileWrite.close()
-    
-print("\n\nSegunda Prueba \n\n")
+    lexer.input(test_2)
 
-file = open("test2.txt")
-saved_file = file.read() 
-program = saved_file.split("\n")
-program_string = ''.join(program)
-
-
-lexer.input(program_string)
-
-fileWrite = open("testParser2.txt", "w") 
-
-for tok in lexer:
-    filew = str(tok)
-    fileWrite.write(filew)
-    print(tok)
-
-fileWrite.close()
+    for tok in lexer:
+        print(tok)
