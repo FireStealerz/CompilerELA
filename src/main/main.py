@@ -1,6 +1,7 @@
 import sys
 from lexer import lex_main as lex
 from parser import build_parser as build_parser
+from lexer import lex_pass as lex_check
 
 def lexic_analyzer():
     
@@ -9,7 +10,7 @@ def lexic_analyzer():
     program = saved_file.split("\n")
     program_string = ''.join(program)
       
-    file_2 = open("/home/ivanherran/Documents/Univa/Software de Sistemas/ProyectoCompilador/src/test/test2.txt")
+    file_2 = open("/home/ivanherran/Documents/Univa/Software de Sistemas/ProyectoCompilador/src/test/test4.txt")
     saved_file = file_2.read() 
     program = saved_file.split("\n")
     program_string_2 = ''.join(program)
@@ -20,7 +21,7 @@ def lexic_analyzer():
     
 def parsing():
     
-    file = open("/home/ivanherran/Documents/Univa/Software de Sistemas/ProyectoCompilador/src/test/test2.txt")
+    file = open("/home/ivanherran/Documents/Univa/Software de Sistemas/ProyectoCompilador/src/test/test3.txt")
     saved_file = file.read() 
     program = saved_file.split("\n")
     program_string = ''.join(program)
@@ -29,7 +30,8 @@ def parsing():
     
 lexic_analyzer()
 print("\n\nIniciando Parsing\n\n")
-parsing()
+if lex_check:
+    parsing()
 
 
 

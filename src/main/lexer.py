@@ -1,12 +1,15 @@
 import ply.lex as lex
 from ply.lex import TOKEN
 
+
+lex_pass = True;
 # Palabras reservadas
 reserved = {
     'if': 'IF',
     'else': 'ELSE',
     'while': 'WHILE',
-    'for': 'FOR'
+    'for': 'FOR',
+    'do' : 'DO'
 }
 # Lista de tokens
 tokens = [
@@ -44,7 +47,7 @@ t_NE = r'!='
 num_float = r'\d+\.\d+f'
 num_int = r'\d+'
 ID_RegEx = r'\$[a-z]+'
-ID_Reserved = r'\b(if|else|while|for)\b'
+ID_Reserved = r'\b(if|else|while|for|do)\b'
 string_type = r'\"([^\\\n]|(\\.))*?\"'
 
 # Regla de expresión regular para números
@@ -91,19 +94,20 @@ def t_error(t):
 
 def lex_main(test_1, test_2):
 
+    
     # Construir el lexer
     lexer = lex.lex()
 
     # Prueba del lexer
 
-#    lexer.input(test_1)
-#    print("Primera Prueba: \n\n")
-#    for tok in lexer:
-#        print(tok)
+    lexer.input(test_1)
+    print("Primera Prueba: \n\n")
+    for tok in lexer:
+        print(tok)
         
     print("\n\nSegunda Prueba \n\n")
 
     lexer.input(test_2)
 
     for tok in lexer:
-        print(tok)
+       print(tok)
