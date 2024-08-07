@@ -273,23 +273,23 @@ print($text) #Salida "Hola mi nombre es Julito"
 ```
 Ejemplo: 
 
-x = 10
-if x > 5:
-    print("x es mayor que 5")
-else:
-    print("x es 5 o menor")
+if ($x < 10) {
+    $y = $x + 1;
+} else {
+    $y = $x - 1;
+}
 ```
 
-**Do-while**
+**While**
 **Descripción:** Ejecuta un bloque de código al menos una vez y luego repite la ejecución mientras una condición sea verdadera.
 ```
 Ejemplo: 
  
-$x = 0;
-do {
-    printf("%d\n", $x);
-    $x++;
-} while ($x < 5);
+while ($y > 0) {
+    $y = $y - 1;
+    $z = 3.14f;
+    $str = "Hello, world!";
+}
 
 ```
 
@@ -298,8 +298,16 @@ do {
 ```
 Ejemplo: 
 
-for ($x; $x <= 0; $x++)
-  print("hello")
+for ($i = 0; $i < 5; $i = $i + 1) {
+    if ($i % 2 == 0) {
+        $even = "true";
+    } else {
+        $even = "false";
+    }
+
+    $result = $i * 2 + 3.0f;
+    $message = "Iteration " + $i + ": result is " + $result;
+}
 ```
 
 ---
@@ -311,11 +319,39 @@ A continuación se muestras ejemplos de casos de uso para el uso del lenguaje de
 ```
 Ejemplo incorrecto: 
 
+hello + victor;
+victor * manuel>ZZ>>>><'
+777+´
+prot31221
 
 ```
 
 ```
 Ejemplo correcto:
 
+$x = 5;
+
+if ($x < 10) {
+    $y = $x + 1;
+} else {
+    $y = $x - 1;
+}
+
+while ($y > 0) {
+    $y = $y - 1;
+    $z = 3.14f;
+    $str = "Hello, world!";
+}
+
+for ($i = 0; $i < 5; $i = $i + 1) {
+    if ($i % 2 == 0) {
+        $even = "true";
+    } else {
+        $even = "false";
+    }
+
+    $result = $i * 2 + 3.0f;
+    $message = "Iteration " + $i + ": result is " + $result;
+}
 
 ```
