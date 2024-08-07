@@ -1,6 +1,7 @@
 # <img src="https://raw.githubusercontent.com/FireStealerz/CompilerELA/main/documentationGraphics/univaLogo.png" alt="Texto alternativo" width="30" height="32"> Universidad del Valle de Atemajac
 ---
-**Fecha de publicación:** 06/08/2024
+**Fecha de publicación:** 
+06/08/2024
 
 **Publicado por:** 
 * Edson Rodriguez Rey
