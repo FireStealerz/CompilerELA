@@ -1,3 +1,4 @@
+import sys
 import ply.lex as lex
 from ply.lex import TOKEN
 
@@ -89,25 +90,19 @@ def t_newline(t):
 
 # Manejo de errores
 def t_error(t):
-    print(f"Illegal character {t.value[1]} token #{t.lexpos}'")
-    t.lexer.skip(1)
+    print(f"Caracter ilegal '{t.value[1]}' Posición: {t.lexpos}")
+    print("\n\nEjecución finalizada ... \n\n\n")
+    #t.lexer.skip(1)
+    sys.exit(1)
 
-def lex_main(test_1, test_2):
+def lex_main(test_file):
 
-    
     # Construir el lexer
     lexer = lex.lex()
 
     # Prueba del lexer
 
-    lexer.input(test_1)
-    print("Primera Prueba: \n\n")
+    lexer.input(test_file)
+    print("Ejecutando análisis léxico ... \n")
     for tok in lexer:
         print(tok)
-        
-    print("\n\nSegunda Prueba \n\n")
-
-    lexer.input(test_2)
-
-    for tok in lexer:
-       print(tok)

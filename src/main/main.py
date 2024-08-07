@@ -1,37 +1,37 @@
 import sys
+from dotenv import load_dotenv
+import os
 from lexer import lex_main as lex
 from parser import build_parser as build_parser
 from lexer import lex_pass as lex_check
 
-def lexic_analyzer():
+def lexic_analyzer(file_path):
     
-    file = open("/home/ivanherran/Documents/Univa/Software de Sistemas/ProyectoCompilador/src/test/test.txt")
+    file = open(file_path)
     saved_file = file.read() 
     program = saved_file.split("\n")
     program_string = ''.join(program)
-      
-    file_2 = open("/home/ivanherran/Documents/Univa/Software de Sistemas/ProyectoCompilador/src/test/test4.txt")
-    saved_file = file_2.read() 
-    program = saved_file.split("\n")
-    program_string_2 = ''.join(program)
 
-    lex(program_string, program_string_2)
+    lex(program_string)
     file.close()
-    file_2.close()
+
+def parsing(file_path):
     
-def parsing():
-    
-    file = open("/home/ivanherran/Documents/Univa/Software de Sistemas/ProyectoCompilador/src/test/test3.txt")
+    file = open(file_path)
     saved_file = file.read() 
     program = saved_file.split("\n")
     program_string = ''.join(program)
     build_parser(program_string)
     file.close()
     
-lexic_analyzer()
-print("\n\nIniciando Parsing\n\n")
+
+print("\n\nCompilando programa ... \n")
+load_dotenv()
+file_path = os.getenv('VICTOR_TESTING_FILE')    
+lexic_analyzer(file_path)
+
 if lex_check:
-    parsing()
+    parsing(file_path)
 
 
 

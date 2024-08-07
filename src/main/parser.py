@@ -106,7 +106,8 @@ def p_error(p):
 parser = yacc.yacc()
      
 def build_parser(input_string):        
-
+    
+    print('\n\nIniciando análisis sintactico ... \n')
     parser.parse(input_string, debug=True)
 
 
